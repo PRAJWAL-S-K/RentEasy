@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
 
-export const signUp =async (req, res)=>{
+export const signUp =async (req, res, next)=>{
     const {username, email, pass}=req.body;
 
     const hashedPass = bcryptjs.hashSync(pass,10); //to encrypt the pass with some salt variable 10
@@ -12,6 +12,6 @@ export const signUp =async (req, res)=>{
     }
     catch(error)
     {
-        res.status(500).json(error.message); //status 500 means some error has occured
+        next(error)//status 500 means some error has occured
     }
 }
