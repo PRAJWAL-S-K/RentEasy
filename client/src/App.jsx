@@ -8,7 +8,7 @@ import SignIn from './pages/SignIn';
 import Profile from "./pages/Profile";
 import SignUp from './pages/SignUp';
 import Listing from "./pages/Listing";
-
+import Search from "./pages/Search";
 
 <Route element={<PrivateRoute />}>
   <Route path="/profile" element={<Profile />} />
@@ -22,6 +22,7 @@ export default function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/sign-in" element={<SignIn />}></Route>
+        <Route path="/search" element={<Search />} />
         <Route path="/sign-up" element={<SignUp />}></Route>
         <Route path="/listing/:listingId" element={<Listing />} />
 
