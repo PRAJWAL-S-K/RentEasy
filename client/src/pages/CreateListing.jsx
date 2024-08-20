@@ -14,7 +14,7 @@ export default function CreateListing() {
   const navigate = useNavigate();
   const [files, setFiles] = useState([]);
   const [formData, setFormData] = useState({
-    imageUrls: [],
+    ImageUrls: [],
     name: "",
     description: "",
     address: "",
@@ -34,7 +34,7 @@ export default function CreateListing() {
   console.log(formData);
 
   const handleImageSubmit = (e) => {
-    if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
+    if (files.length > 0 && files.length + formData.ImageUrls.length < 7) {
       setUploading(true);
       setImageUploadError(false);
       const promises = [];
@@ -46,7 +46,7 @@ export default function CreateListing() {
         .then((urls) => {
           setFormData({
             ...formData,
-            imageUrls: formData.imageUrls.concat(urls),
+            ImageUrls: formData.ImageUrls.concat(urls),
           });
           setImageUploadError(false);
           setUploading(false);
@@ -89,7 +89,7 @@ export default function CreateListing() {
   const handleRemoveImage = (index) => {
     setFormData({
       ...formData,
-      imageUrls: formData.imageUrls.filter((_, i) => i !== index),
+      ImageUrls: formData.ImageUrls.filter((_, i) => i !== index),
     });
   };
 
@@ -127,7 +127,7 @@ export default function CreateListing() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (formData.imageUrls.length < 1)
+      if (formData.ImageUrls.length < 1)
         return setError("You must upload at least one image");
       if (+formData.regularPrice < +formData.discountPrice)
         return setError("Discount price must be lower than regular price");
@@ -337,8 +337,8 @@ export default function CreateListing() {
           <p className="text-red-700 text-sm">
             {imageUploadError && imageUploadError}
           </p>
-          {formData.imageUrls.length > 0 &&
-            formData.imageUrls.map((url, index) => (
+          {formData.ImageUrls.length > 0 &&
+            formData.ImageUrls.map((url, index) => (
               <div
                 key={url}
                 className="flex justify-around px-4 border rounded-lg border-slate-300 items-center"
