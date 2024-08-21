@@ -129,7 +129,7 @@ export default function CreateListing() {
     try {
       if (formData.ImageUrls.length < 1)
         return setError("You must upload at least one image");
-      if (+formData.regularPrice < +formData.discountPrice)
+      if (+formData.regularPrice < +formData.discountedPrice)
         return setError("Discount price must be lower than regular price");
       setLoading(true);
       setError(false);
@@ -276,8 +276,8 @@ export default function CreateListing() {
                 <input
                   type="number"
                   id="regularPrice"
-                  min="500"
-                  max="5000"
+                  min="50"
+                  max="50000000"
                   required
                   className="p-2 border border-gray-300 rounded-lg"
                   onChange={handleChange}
@@ -286,7 +286,7 @@ export default function CreateListing() {
                 <div className="flex flex-col items-center">
                   <p>Regular price</p>
                   {formData.type === "rent" && (
-                    <span className="text-xs">($ / month)</span>
+                    <span className="text-xs">(₹ / month)</span>
                   )}
                 </div>
               </div>
@@ -294,18 +294,18 @@ export default function CreateListing() {
                 <div className="flex items-center gap-1">
                   <input
                     type="number"
-                    id="discountPrice"
+                    id="discountedPrice"
                     min="0"
-                    max="5000"
+                    max="500000"
                     required
                     className="p-2 border border-gray-300 rounded-lg"
                     onChange={handleChange}
-                    value={formData.discountPrice}
+                    value={formData.discountedPrice}
                   />
                   <div className="flex flex-col items-center">
                     <p>Discounted price</p>
                     {formData.type === "rent" && (
-                      <span className="text-xs">($ / month)</span>
+                      <span className="text-xs">(₹ / month)</span>
                     )}
                   </div>
                 </div>
@@ -363,7 +363,7 @@ export default function CreateListing() {
             ))}
           <button
             disabled={loading || uploading}
-            className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+            className="p-3 bg-purple-800 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
           >
             {loading ? "Creating..." : "Create listing"}
           </button>

@@ -50,15 +50,14 @@ export default function Home() {
       {/* top */}
       <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto">
         <h1 className="text-purple-700 font-bold text-3xl lg:text-6xl">
-          Find your next <span className="text-purple-500">perfect</span>
+        Your <span className="text-purple-500">Journey</span> Starts
           <br />
-          place with ease
+           with a Place to Stay!
         </h1>
         <div className="text-gray-400 text-xs sm:text-sm">
-          Sahand Estate is the best place to find your next perfect place to
-          live.
+        RENTeasy helps students and professionals find affordable rooms and homes for rent,offering a simple and stress-free way to 
           <br />
-          We have a wide range of properties for you to choose from.
+           connect with property owners. Discover your next home away from home with RENTeasy.
         </div>
         <Link
           to={"/search"}
