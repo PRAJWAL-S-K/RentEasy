@@ -60,6 +60,15 @@ export default function SignUp() {
           onChange={handleChange}
         />
         <input
+          type="text"
+          minLength="10"
+          maxLength="10"
+          placeholder="Contact Number"
+          className="border p-3 rounded-lg"
+          id="Contact"
+          onChange={handleChange}
+        />
+        <input
           type="password"
           placeholder="password"
           className="border p-3 rounded-lg"
@@ -72,7 +81,7 @@ export default function SignUp() {
         >
           {loading ? "Loading..." : "Sign Up"}
         </button>
-        <OAuth/>
+        <OAuth />
       </form>
       <div className="flex gap-2 mt-5">
         <p>Have an account?</p>
